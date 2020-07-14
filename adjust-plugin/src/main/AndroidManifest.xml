@@ -4,7 +4,7 @@
     <application>
 
         <meta-data
-            android:name="org.godotengine.plugin.v1.godot-adjust"
+            android:name="org.godotengine.plugin.v1.GodotAdjust"
             android:value="com.bashan.godot.adjust.GodotAdjust" />
 
         <receiver

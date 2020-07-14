@@ -29,7 +29,7 @@ public class GodotAdjust extends GodotPlugin {
     }
 
     public void init(final String appToken) {
-        Log.i(TAG, "Started initializing Godot-Adjust Singleton with App Token: " + appToken);
+        Log.i(TAG, "Started initializing GodotAdjust Singleton with App Token: " + appToken);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -42,7 +42,7 @@ public class GodotAdjust extends GodotPlugin {
 
                 activity.getApplication().registerActivityLifecycleCallbacks(new AdjustLifecycleCallbacks());
 
-                Log.i(TAG, "Finished initializing Godot-Adjust Singleton");
+                Log.i(TAG, "Finished initializing GodotAdjust Singleton");
             }
         });
     }
@@ -82,7 +82,7 @@ public class GodotAdjust extends GodotPlugin {
     @NonNull
     @Override
     public String getPluginName() {
-        return "Godot-Adjust";
+        return "GodotAdjust";
     }
 
     @NonNull
