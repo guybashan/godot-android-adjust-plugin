@@ -9,20 +9,28 @@ This is Android Adjust plugin for Godot 3.2.2 or higher.
 ![Annotation 2020-07-24 213436](https://user-images.githubusercontent.com/3739222/88424072-9644e300-cdf5-11ea-9a1d-9d282b70550e.png)
 
 ## Basic Example in Godot (GDScript)
+*Recommended: Load the following as a singleton*
 ```
-    const adjust_app_token = "12345.."
-    var adjust
-    if (Engine.has_singleton("GodotAdjust")):
-        print("Adjust was detected")
-        adjust = Engine.get_singleton("GodotAdjust")
-        adjust.init(adjust_app_token)
-    else:
-        print("Adjust was not detected")
+extends Node
+
+const adjust_app_token = "yyzasoa5g2yo"
+const adjust_production = false
+
+var adjust
+func _ready():
+	if (Engine.has_singleton("GodotAdjust")):
+		print("Adjust was detected")
+		adjust = Engine.get_singleton("GodotAdjust")
+		adjust.init(adjust_app_token, adjust_production)
+	else:
+		print("Adjust was not detected")
 ```
 
 ## Api Reference
 
 **Functions:**
 ```
-init(app_token)
+init(app_token, production)
+* app_token - Your adjust app token.
+* production - If true, run adjust in production mode. Else, use sandbox mode.
 ```

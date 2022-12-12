@@ -28,13 +28,12 @@ public class GodotAdjust extends GodotPlugin {
         activity = godot.getActivity();
     }
 
-    public void init(final String appToken) {
+    public void init(final String appToken, final boolean production) {
         Log.i(TAG, "Started initializing GodotAdjust Singleton with App Token: " + appToken);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                String environment = AdjustConfig.ENVIRONMENT_SANDBOX;
-                //String environment = AdjustConfig.ENVIRONMENT_PRODUCTION;
+                String environment = production ? AdjustConfig.ENVIRONMENT_PRODUCTION : AdjustConfig.ENVIRONMENT_SANDBOX;
 
                 AdjustConfig config = new AdjustConfig(activity, appToken, environment);
                 config.setLogLevel(LogLevel.VERBOSE);
