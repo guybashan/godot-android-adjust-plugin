@@ -21,11 +21,11 @@ public class GodotAdjust extends GodotPlugin {
 
     private static final String TAG = "godot-adjust";
 
-    private Godot activity;
+    private Activity activity;
 
     public GodotAdjust(Godot godot) {
         super(godot);
-        activity = godot;
+        activity = godot.getActivity();
     }
 
     public void init(final String appToken) {
@@ -34,11 +34,13 @@ public class GodotAdjust extends GodotPlugin {
             @Override
             public void run() {
                 String environment = AdjustConfig.ENVIRONMENT_SANDBOX;
+                //String environment = AdjustConfig.ENVIRONMENT_PRODUCTION;
 
                 AdjustConfig config = new AdjustConfig(activity, appToken, environment);
                 config.setLogLevel(LogLevel.VERBOSE);
 
                 Adjust.onCreate(config);
+                Adjust.onResume();
 
                 activity.getApplication().registerActivityLifecycleCallbacks(new AdjustLifecycleCallbacks());
 
